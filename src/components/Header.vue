@@ -6,6 +6,7 @@
         <router-link to="/news">新闻</router-link>
         <router-link to="/moods">心情</router-link>
         <router-link to="/wall">壁纸</router-link>
+        <router-link to="/music">音乐空间</router-link>
       </el-col>
     </el-row>
   </div>

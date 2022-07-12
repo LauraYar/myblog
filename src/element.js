@@ -41,6 +41,8 @@ import {
   Upload,
   Timeline,
   TimelineItem,
+  Carousel,
+  CarouselItem,
 } from 'element-ui';
 
 Vue.use(Button);
@@ -83,6 +85,8 @@ Vue.use(Timeline);
 Vue.use(TimelineItem);
 Vue.use(Button);
 Vue.use(Select);
+Vue.use(Carousel);
+Vue.use(CarouselItem);
 // Vue.use(Message);message需要进行全局挂载，跟其他不一样
 Vue.prototype.$message = Message;
 // 没有加.confirm就没有取消按钮
