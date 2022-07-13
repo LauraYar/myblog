@@ -6,11 +6,14 @@
         <a>发现音乐</a>
         <a>云村</a>
       </div>
-      <div class="search"><input type="text" placeholder="音乐/视频" /></div>
+      <div class="search">
+        <i class="iconfont icon-search"></i>
+        <input type="text" placeholder="音乐/视频" />
+      </div>
     </div>
     <span></span>
     <!-- 主体区域 -->
-    <el-container style="height: 500px; border: 1px solid #eee">
+    <el-container style="height: 1400px; border: 1px solid #eee">
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <el-menu router>
           <el-menu-item index="/fdmusic">
@@ -58,12 +61,21 @@ export default {};
     font-size: 16px;
     margin: 10px;
   }
-  input {
-    border-radius: 18px;
-    width: 200px;
-    height: 30px;
-    padding-left: 26px;
-    background: #fff;
+  .search {
+    position: relative;
+
+    .iconfont.icon-search {
+      position: absolute;
+      top: 6px;
+      left: 10px;
+    }
+    input {
+      border-radius: 18px;
+      width: 200px;
+      height: 30px;
+      padding-left: 26px;
+      background: #fff;
+    }
   }
 }
 span {

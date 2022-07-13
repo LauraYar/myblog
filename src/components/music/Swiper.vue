@@ -10,7 +10,7 @@
 </template>
 
 <script>
-// import { onMounted } from 'vue';
+import service from '@/global/service/index';
 export default {
   data() {
     return {
@@ -22,19 +22,12 @@ export default {
     this.getLunlist();
   },
   methods: {
-    async getLunlist() {
-      const { data: res } = await this.$http.get(
-        'http://localhost:3000/banner?type=2'
-      );
-      console.log(res);
-      this.lunList = res.banners;
-      console.log(this.lunList);
+    getLunlist() {
+      // banner获取数据（轮播图）
+      service.getLunlist({ type: 2 }).then((res) => {
+        this.lunList = res.banners;
+      });
     },
-    // getLunlist() {
-    //   this.$http.get('http://localhost:3000/banner?type=2').then((res) => {
-    //     console.log(res);
-    //   });
-    // },
   },
 };
 </script>

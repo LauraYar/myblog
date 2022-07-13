@@ -155,9 +155,10 @@ export default {
 .header-container {
   width: 100%;
   height: 400px;
-  > img {
+  img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 }
 #logout {
@@ -214,6 +215,7 @@ export default {
         height: 100px;
         border-radius: 50%;
         border: 4px solid #e2e2e2;
+        object-fit: cover;
       }
       .count {
         display: flex;
