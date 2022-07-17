@@ -26,6 +26,7 @@ export default {
       // banner获取数据（轮播图）
       service.getLunlist({ type: 2 }).then((res) => {
         this.lunList = res.banners;
+        // console.log(this.lunList);
       });
     },
   },

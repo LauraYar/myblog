@@ -1,31 +1,21 @@
 <template>
-  <div>歌单详情</div>
+  <div>
+    <ItemMusicTop></ItemMusicTop>
+  </div>
 </template>
 
 <script>
-import service from '@/global/service/index';
+import ItemMusicTop from './music/ItemMusicTop.vue';
+
 export default {
+  components: {
+    ItemMusicTop,
+  },
   data() {
-    return {
-      itemList: [],
-    };
+    return {};
   },
 
-  mounted() {
-    this.getItemMusicList();
-  },
-  methods: {
-    getItemMusicList() {
-      const { id } = this.$route.query;
-      console.log(id);
-      // const { data: res } = await this.$http.get('/personalized?limit=10');
-      // this.musicList = res.result;
-      service.getMusicList({ id }).then((res) => {
-        this.itemList = res.result;
-        console.log(this.itemList);
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 

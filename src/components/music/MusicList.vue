@@ -1,3 +1,4 @@
+// 发现好歌单2
 <template>
   <div class="music-list">
     <div class="musicTop">
@@ -70,7 +71,7 @@ export default {
       // this.musicList = res.result;
       service.getMusicList({ limit: 10 }).then((res) => {
         this.musicList = res.result;
-        console.log(this.musicList);
+        // console.log(this.musicList);
       });
     },
 
@@ -88,61 +89,63 @@ export default {
 </script>
 
 <style scoped lang="less">
-.musicTop {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-  .title {
-    font-size: 16px;
-    font-weight: 800;
+.music-list {
+  .musicTop {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    .title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .more {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border: 2px solid #e2e2e2;
+      border-radius: 20px;
+    }
   }
-  .more {
-    width: 80px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    border: 2px solid #e2e2e2;
-    border-radius: 20px;
-  }
-}
-// 轮播图
-.home {
-  .swiper {
-    height: 300px;
-    border: 1px solid red;
-    .swiper-slide {
-      .img-play {
-        position: relative;
-        width: 194px;
-        height: 200px;
-
-        img {
+  // 轮播图
+  .home {
+    .swiper {
+      height: 300px;
+      border: 1px solid yellow;
+      .swiper-slide {
+        .img-play {
+          position: relative;
           width: 194px;
           height: 200px;
-          border-radius: 6px;
-        }
-        .playCount {
-          position: absolute;
-          bottom: 0px;
-          left: 50%;
-          transform: translate(-50%);
-          display: flex;
-          align-items: center;
-          color: #fff;
-        }
 
-        .mask {
-          position: absolute;
-          bottom: -2px;
-          width: 100%;
-          height: 30px;
-          background: #000000;
-          opacity: 0.2;
+          img {
+            width: 194px;
+            height: 200px;
+            border-radius: 6px;
+          }
+          .playCount {
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translate(-50%);
+            display: flex;
+            align-items: center;
+            color: #fff;
+          }
+
+          .mask {
+            position: absolute;
+            bottom: -2px;
+            width: 100%;
+            height: 30px;
+            background: #000000;
+            opacity: 0.2;
+          }
         }
-      }
-      .list-name {
-        margin-top: 8px;
-        font-size: 12px;
+        .list-name {
+          margin-top: 8px;
+          font-size: 12px;
+        }
       }
     }
   }
