@@ -14,7 +14,7 @@ export default {
   getItemMusicList(params) {
     return axios.get(API.itemList, params);
   },
-  //  // 获取歌单所有歌曲
+  // 获取歌单所有歌曲/playlist/track/all?id=24381616&limit=10&offset=1
   getMusicItemList(params) {
     return axios.get(API.musicItemList, params);
   },

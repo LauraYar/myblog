@@ -90,10 +90,12 @@ export default {
 
 <style scoped lang="less">
 .music-list {
+  width: 100%;
+  height: 100%;
   .musicTop {
     display: flex;
     justify-content: space-between;
-    margin: 10px 0;
+    // margin: 10px 0;
     .title {
       font-size: 16px;
       font-weight: 800;
@@ -111,7 +113,7 @@ export default {
   .home {
     .swiper {
       height: 300px;
-      border: 1px solid yellow;
+
       .swiper-slide {
         .img-play {
           position: relative;

@@ -33,6 +33,46 @@
         </div>
       </div>
     </div>
+    <!--歌单列表 -->
+
+    <el-table
+      :data="musicItemList"
+      style="width: 100%"
+      background-color="transparent"
+    >
+      <el-table-column type="index"> </el-table-column>
+      <el-table-column label="like" width="180"> </el-table-column>
+      <el-table-column label="歌名" prop="name" width="180"> </el-table-column>
+      <el-table-column label="mv" prop="mv">
+        <i class="el-icon-video-camera"></i>
+      </el-table-column>
+      <el-table-column label="歌手" prop="ar[0].name"> </el-table-column>
+    </el-table>
+    <!-- 底部制作 -->
+    <!-- 底部区域 -->
+    <div class="footer">
+      <div class="footer-left">
+        <img src="" alt="" />
+        <div class="title">
+          <div class="music-name"></div>
+          <div class="music-author"></div>
+        </div>
+      </div>
+      <!-- 中间播放区域 -->
+      <div class="footer-mid">
+        <div class="icon-list">
+          <i class="iconfont icon-xunhuanjianting"> </i>
+          <img src="../images/play-pre.png" alt="" />
+          <i class="iconfont icon-zanting"></i>
+          <img src="../images/play-next.png" alt="" />
+        </div>
+        <div class="progress"></div>
+      </div>
+      <!-- 右边音量等 -->
+      <div class="footer-right">
+        <i class="iconfont icon-meirituijian"> </i>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,24 +81,38 @@ import service from '@/global/service/index';
 export default {
   data() {
     return {
-      itemList: {},
+      itemList: [],
       pic: this.$route.query.picUrl,
       Muname: this.$route.query.Muname,
+      musicItemList: [],
+      musicPlayList: {},
     };
   },
 
   mounted() {
     this.getItemMusicList();
+    this.getMusicItemList();
   },
+
   methods: {
     getItemMusicList() {
       // const { id } = this.$route.query;
       // const { pic } = this.$route.query.picUrl;
-
-      service.getMusicList({}).then((res) => {
-        console.log(res);
+      service.getMusicList().then((res) => {
+        // console.log(res);
         this.itemList = res.result;
-        // console.log(this.itemList);
+      });
+    },
+    getMusicItemList() {
+      // console.log(this.$route.query);
+      const { id } = this.$route.query;
+      service.getMusicItemList({ id, limit: 10 }).then((res) => {
+        // console.log(res);
+        this.musicItemList = res.songs;
+        this.musicPlayList = res.privileges;
+
+        console.log(this.musicItemList);
+        console.log(this.musicPlayList);
       });
     },
   },
@@ -71,9 +125,9 @@ export default {
   // justify-content: space-around;
   // align-items: center;
   width: 100%;
-  height: 500px;
+  // height: 500px;
   padding: 40px;
-  border: 1px solid pink;
+
   .header-left {
     width: 200px;
     height: 200px;
@@ -112,6 +166,48 @@ export default {
       .icon {
         margin: 0 40px;
       }
+    }
+  }
+}
+
+.table-wrapper /deep/ .el-table,
+.el-table__expanded-cell {
+  background-color: transparent !important;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // position: absolute;
+  // bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: #e2e2e2;
+  border-top: 1px solid black;
+  .footer-left {
+    width: 300px;
+    height: 100%;
+
+    border: 1px solid black;
+  }
+  .footer-mid {
+    .icon-list {
+      display: flex;
+      align-items: center;
+      .iconfont {
+        font-size: 30px;
+        color: #ff5d50;
+        margin: 0 10px;
+      }
+    }
+  }
+  .footer-right {
+    width: 300px;
+    height: 100%;
+    .iconfont {
+      font-size: 30px;
+      color: #ff5d50;
+      margin: 0 10px;
     }
   }
 }

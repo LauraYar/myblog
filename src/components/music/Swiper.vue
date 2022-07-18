@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 轮播图 -->
-    <el-carousel :interval="3000" type="card" width="700px" height="200px">
+    <el-carousel :interval="3000" type="card" width="800px" height="200px">
       <el-carousel-item v-for="item in lunList" :key="item.bannerId">
         <img :src="item.pic" alt="" />
       </el-carousel-item>

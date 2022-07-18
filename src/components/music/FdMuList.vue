@@ -47,7 +47,7 @@ export default {
     getMusicList() {
       // const { data: res } = await this.$http.get('/personalized?limit=10');
       // this.musicList = res.result;
-      service.getMusicList({ limit: 12 }).then((res) => {
+      service.getMusicList({ limit: 15 }).then((res) => {
         console.log(res);
         this.musicList = res.result;
         console.log(this.musicList);
@@ -80,7 +80,7 @@ export default {
       width: 80px;
       height: 30px;
       line-height: 30px;
-      text-align: center;
+      text-align: center;-
       border: 2px solid #e2e2e2;
       border-radius: 20px;
     }
